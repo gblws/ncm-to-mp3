@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NCM to MP3</title>
+  <meta name="description" content="本地 NCM 转 MP3 工具，文件不会离开你的电脑。">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">N</span><span>NCM to MP3</span></div>
+      <span class="local-pill" id="connection"><i></i>正在连接本地服务</span>
+    </header>
+    <section class="hero">
+      <p class="eyebrow">LOCAL AUDIO UTILITY</p>
+      <h1>把你的 NCM 音乐<br><em>还原成 MP3</em></h1>
+      <p class="intro">拖入网易云音乐下载的 .ncm 文件，转换后的音频和封面信息会直接在本机生成。</p>
+    </section>
+    <section class="workspace" aria-label="音乐转换">
+      <input id="file-input" type="file" accept=".ncm" multiple hidden>
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="选择或拖入 NCM 文件">
+        <div class="upload-icon"><span>↑</span></div>
+        <h2>拖入 NCM 文件</h2>
+        <p>或点击此处从电脑选择，可同时转换多个文件</p>
+        <button id="choose-button" class="primary" type="button">选择文件</button>
+        <div class="hint"><span>✓</span> 仅在本机转换 · 单文件最大 300 MB</div>
+      </div>
+      <div id="notice" class="notice" role="alert" hidden></div>
+      <div class="queue-head"><h2>转换列表 <span id="count">0</span></h2><button id="clear-button" class="text-button" type="button" hidden>清空</button></div>
+      <div id="queue" class="queue" aria-label="转换任务列表"></div>
+      <div id="summary" class="summary" hidden><span id="summary-text" role="status"></span><button id="download-all" class="primary small" type="button">打包下载 ZIP</button></div>
+    </section>
+    <p class="conversion-note" id="format-note">MP3 音源直接还原；FLAC 音源转为 320 kbps MP3。</p>
+    <footer><span>支持 NCM 音频文件</span><span>•</span><span>MP3 + ID3 标签 + 封面</span></footer>
+  </main>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "ncm-to-mp3-local",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local Netease Cloud Music NCM to MP3 converter",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "convert": "node src/cli.js",
+    "test": "node --test test/ncm.test.js test/server.test.js test/zip.test.js test/transcode.test.js"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

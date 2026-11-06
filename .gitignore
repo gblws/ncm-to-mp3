@@ -1,0 +1,17 @@
+node_modules/
+*.log
+dist/
+.tools/
+.local-output/
+output/
+samples/
+*.ncm
+*.mp3
+*.flac
+*.wav
+*.zip
+*.exe
+.env
+.env.*
+.DS_Store
+Thumbs.db
