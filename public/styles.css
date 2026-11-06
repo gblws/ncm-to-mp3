@@ -27,13 +27,13 @@ body:before {
   background-size:32px 32px;
 }
 .shell {
-  max-width:980px;
+  max-width:860px;
   margin:0 auto;
   padding:28px 34px 34px;
   position:relative;
 }
 .topbar {
-  height:42px;
+  height:32px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -73,31 +73,21 @@ body:before {
   box-shadow:0 0 0 4px #dceee8;
 }
 .hero {
-  padding:76px 0 42px;
-  max-width:660px;
-}
-.eyebrow {
-  margin:0 0 15px;
-  color:var(--accent);
-  font:500 11px 'DM Mono',monospace;
-  letter-spacing:.14em;
+  padding:52px 0 28px;
+  max-width:600px;
 }
 .hero h1 {
-  font-size:clamp(38px,6vw,62px);
-  line-height:1.08;
-  letter-spacing:-.065em;
+  font-size:54px;
+  line-height:1.12;
   margin:0;
+}
+.hero h1 span,.hero h1 em {
+  display:block;
 }
 .hero h1 em {
   color:var(--accent);
   font-style:normal;
-}
-.intro {
-  font-size:15px;
-  line-height:1.8;
-  color:var(--muted);
-  max-width:535px;
-  margin:22px 0 0;
+  margin-top:4px;
 }
 .workspace {
   background:rgba(255,255,255,.88);
@@ -107,7 +97,7 @@ body:before {
   box-shadow:0 18px 48px rgba(35,60,51,.06);
 }
 .dropzone {
-  min-height:268px;
+  min-height:244px;
   border:1.5px dashed #b9ccc5;
   border-radius:12px;
   background:linear-gradient(135deg,#fbfdfb,#f5faf7);
@@ -139,11 +129,6 @@ body:before {
   margin:0 0 6px;
   letter-spacing:-.02em;
 }
-.dropzone p {
-  font-size:12px;
-  color:var(--muted);
-  margin:0 0 18px;
-}
 .primary {
   border:0;
   border-radius:8px;
@@ -160,15 +145,6 @@ body:before {
 }
 .primary.small {
   padding:10px 14px;
-}
-.hint {
-  margin-top:19px;
-  color:#84958f;
-  font:400 10px 'DM Mono',monospace;
-}
-.hint span {
-  color:#56a98a;
-  margin-right:4px;
 }
 .queue-head {
   display:flex;
@@ -257,29 +233,21 @@ body:before {
   font-size:11px;
   color:var(--muted);
 }
-footer {
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  color:#9aa8a3;
-  font:10px 'DM Mono',monospace;
-  padding:24px 0 0;
-}
 @media(max-width:600px) {
   .shell {
     padding:20px 16px 28px;
   }
   .hero {
-    padding:58px 0 32px;
+    padding:42px 0 24px;
   }
   .hero h1 {
-    font-size:42px;
+    font-size:40px;
   }
   .workspace {
     padding:9px;
   }
   .dropzone {
-    min-height:245px;
+    min-height:220px;
   }
   .local-pill {
     font-size:9px;
@@ -399,13 +367,6 @@ button:disabled {
   background:#ee5b42;
   box-shadow:0 0 0 4px #f8ded6;
 }
-footer {
-  line-height:1.7;
-  flex-wrap:wrap;
-}
-.summary-text {
-  line-height:1.7;
-}
 @keyframes loading {
   from {
     transform:translateX(-100%);
@@ -431,9 +392,5 @@ footer {
   }
   .summary {
     gap:12px;
-  }
-  .dropzone p {
-    font-size:11px;
-    padding:0 8px;
   }
 }

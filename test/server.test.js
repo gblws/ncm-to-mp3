@@ -11,7 +11,12 @@ test('local HTTP upload, binary download, malformed input and origin isolation',
   const base = `http://127.0.0.1:${server.address().port}`;
   const page = await fetch(base);
   assert.equal(page.status, 200);
-  assert.match(await page.text(), /拖入 NCM/);
+  const markup = await page.text();
+  assert.match(markup, /wyy音乐/);
+  assert.match(markup, /NCM → MP3/);
+  assert.match(markup, /拖入 NCM/);
+  assert.doesNotMatch(markup, /LOCAL AUDIO UTILITY|准备好你的音乐|转换结果会显示在这里/);
+  assert.match(markup, /id="queue"[^>]* hidden/);
   const audio = Buffer.from([0xff, 0xfb, 0x90, 0x64, 8, 9]);
   const response = await fetch(`${base}/api/convert`, {
     method: 'POST', body: fixture(audio), headers: { 'content-type': 'application/octet-stream', 'x-file-name': encodeURIComponent('测试.ncm'), origin: base },

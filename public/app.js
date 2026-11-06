@@ -19,9 +19,6 @@ async function checkConnection() {
     online = true;
     $('#connection').classList.remove('disconnected');
     $('#connection').replaceChildren(Object.assign(document.createElement('i')), document.createTextNode('仅在本机处理'));
-    $('#format-note').textContent = status.ffmpeg
-      ? 'MP3 音源直接还原 · FLAC 音源转为 320 kbps MP3 · 保留歌曲信息与封面'
-      : 'MP3 音源可直接转换。FLAC 无损音源需要安装 FFmpeg，安装后请重启服务。';
   } catch {
     online = false;
     $('#connection').classList.add('disconnected');
@@ -74,16 +71,13 @@ function action(label, callback, secondary = false) {
 function render() {
   $('#queue').replaceChildren();
   $('#count').textContent = jobs.length;
+  $('#queue-head').hidden = !jobs.length;
+  $('#queue').hidden = !jobs.length;
   $('#clear-button').hidden = !jobs.length;
   $('#clear-button').disabled = processing;
   const done = jobs.filter((job) => job.state === 'done');
   $('#summary').hidden = !done.length;
   $('#summary-text').textContent = `${done.length} / ${jobs.length} 首已完成 · 转换结果仅保存在当前页面`;
-  if (!jobs.length) {
-    const empty = document.createElement('div'); empty.className = 'empty';
-    empty.textContent = '准备好你的音乐，转换结果会显示在这里。';
-    $('#queue').append(empty);
-  }
   for (const job of jobs) {
     const row = document.createElement('div'); row.className = 'item'; row.dataset.state = job.state;
     const icon = document.createElement('div'); icon.className = 'item-icon'; icon.textContent = job.state === 'done' ? '♪' : job.state === 'error' ? '!' : '♫';
